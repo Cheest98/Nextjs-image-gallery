@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link"
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import {usePathname} from "next/navigation"
 
 export default function NavBar(){
@@ -17,7 +17,14 @@ export default function NavBar(){
                 <Navbar.Toggle aria-controls="main-navbar" />
                 <Navbar.Collapse id="main-navbar">
                     <Nav>
-                        <Nav.Link as={Link} href="/hello" active={pathname === "/static"}>Static</Nav.Link>
+                        <Nav.Link as={Link} href="/static" active={pathname === "/static"}>Static</Nav.Link>
+                        <Nav.Link as={Link} href="/dynamic" active={pathname === "/dynamic"}>Dynamic</Nav.Link>
+                        <Nav.Link as={Link} href="/isr" active={pathname === "/isr"}>ISR</Nav.Link>
+                        <NavDropdown title="Topics" id="topics-dropdown">
+                            <NavDropdown.Item as={Link} href="/topic/health">Health</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} href="/topic/coding">Coding</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} href="/topic/fitness">Fitness</NavDropdown.Item>
+                        </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
